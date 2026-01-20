@@ -30,11 +30,11 @@
     <h1>Mis Ejercicios de PHP</h1>
     <p style="text-align: center;">Selecciona un ejercicio para probarlo:</p>
     
-    <a href="ejercicio1.php" class="menu-btn">🍇 Ejercicio 1: Vinicultores</a>
-    
-    <a href="ejercicio3.php" class="menu-btn">🍌 Ejercicio 3: Tienda de Plátanos</a>
-    <a href="ej4.php" class="menu-btn">🍍 Ejercicio 4: Piñas</a>
-    <a href="ej5.php" class="menu-btn">🥭 Ejercicio 5: Mangos</a>
+    <a href="ejercicio1.php" class="menu-btn"> Ejercicio 1</a>
+    <a href="ejercicio2.php" class="menu-btn"> Ejercicio 2</a>
+    <a href="ejercicio3.php" class="menu-btn"> Ejercicio 3</a>
+    <a href="ej4.php" class="menu-btn"> Ejercicio 4</a>
+    <a href="ej5.php" class="menu-btn"> Ejercicio 5</a>
 
     <div class="footer">
         Tarea desarrollada para Aplicacion de Tecnologías Web<br>
