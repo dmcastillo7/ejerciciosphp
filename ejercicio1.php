@@ -51,7 +51,7 @@ if (isset($_POST['calcular'])) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ejercicio 1: Uvas</title>
+    <title>Ejercicio 1</title>
     <style>
         /* ESTILOS GENERALES */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 20px; }
@@ -88,7 +88,7 @@ if (isset($_POST['calcular'])) {
     <div class="container">
         <a href="index.php" class="back-link">← Volver al Menú</a>
         
-        <h2>🍇 Calculadora de Uvas</h2>
+        <h2>Calculadora</h2>
         <p style="text-align:center; color:#777; font-size:13px; margin-bottom:15px;">Reglas de Ajuste de Precio</p>
         
         <!-- TABLA DE REGLAS -->
