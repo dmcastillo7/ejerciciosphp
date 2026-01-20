@@ -31,7 +31,10 @@
     <p style="text-align: center;">Selecciona un ejercicio para probarlo:</p>
     
     <a href="ejercicio1.php" class="menu-btn">🍇 Ejercicio 1: Vinicultores</a>
-   
+    
+    <a href="ejercicio3.php" class="menu-btn">🍌 Ejercicio 3: Tienda de Plátanos</a>
+    <a href="ej4.php" class="menu-btn">🍍 Ejercicio 4: Piñas</a>
+    <a href="ej5.php" class="menu-btn">🥭 Ejercicio 5: Mangos</a>
 
     <div class="footer">
         Tarea desarrollada para Aplicacion de Tecnologías Web<br>

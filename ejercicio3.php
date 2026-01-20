@@ -8,9 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Fábricas "El Cometa"</h1>
+    <a href="index.php" class="back-link">← Volver al Menú</a>    
+    <h1>Fábricas "El Cometa"</h1>
         <h2>Calculadora de Precios</h2>
-        
+
         <form method="post" action="">
             <div class="form-group">
                 <label for="materia_prima">Costo de Materia Prima ($):</label>
