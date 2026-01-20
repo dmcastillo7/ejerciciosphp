@@ -2,60 +2,92 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Promedio de Edades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Promedio de Edades</title>
+    <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
+    <div class="container">
+        <a href="index.php" class="back-link">← Volver al Menú</a>
+        <h1>Ejercicio 4</h1>
+        <h2>Edad promedio de un grupo de N alumnos</h2>
 
-<h2>Calcular Edad Promedio de Alumnos</h2>
+        <!-- FORMULARIO 1: Ingresar N -->
+        <form method="post" action="">
+            <div class="form-group">
+                <label for="n">Número de alumnos (N):</label>
+                <input type="number" id="n" name="n" min="1" required>
+            </div>
 
-<!-- FORMULARIO 1: INGRESAR N -->
-<form method="post">
-    <label>Ingrese el número de alumnos:</label><br>
-    <input type="number" name="n" min="1" required>
-    <br><br>
-    <input type="submit" name="generar" value="Generar Campos">
-</form>
+            <button type="submit" name="generar">Generar campos</button>
+        </form>
 
-<hr>
+        <?php
+        // Si se presiona "Generar campos", se dibuja el formulario de edades
+        if (isset($_POST['generar'])) {
+            $n = intval($_POST['n']);
 
-<?php
-// Verificar si se envió el número de alumnos
-if (isset($_POST['generar'])) {
+            echo "<div class='product-info'>";
+            echo "<h4>Ingrese las edades de los $n alumnos:</h4>";
+            echo "</div>";
 
-    $n = $_POST['n']; // variable global
-    echo "<h3>Ingrese las edades</h3>";
+            echo "<form method='post' action=''>";
+            echo "<input type='hidden' name='n' value='$n'>";
 
-    echo "<form method='post'>";
-    echo "<input type='hidden' name='n' value='$n'>";
+            // Ciclo for para generar inputs de edades
+            for ($i = 1; $i <= $n; $i++) {
+                echo "<div class='form-group'>";
+                echo "<label for='edad_$i'>Edad del alumno $i:</label>";
+                echo "<input type='number' id='edad_$i' name='edades[]' min='0' required>";
+                echo "</div>";
+            }
 
-    // Ciclo for para crear campos de edad
-    for ($i = 1; $i <= $n; $i++) {
-        echo "Edad del alumno $i: ";
-        echo "<input type='number' name='edades[]' min='0' required><br><br>";
-    }
+            echo "<button type='submit' name='calcular'>Calcular promedio</button>";
+            echo "</form>";
+        }
 
-    echo "<input type='submit' name='calcular' value='Calcular Promedio'>";
-    echo "</form>";
-}
+        // Si se presiona "Calcular promedio", se procesa la suma y el promedio
+        if (isset($_POST['calcular'])) {
+            $n = intval($_POST['n']);
+            $edades = $_POST['edades'];
 
-// Verificar si se enviaron las edades
-if (isset($_POST['calcular'])) {
+            $suma = 0;
 
-    $n = $_POST['n'];
-    $edades = $_POST['edades'];
-    $suma = 0;
+            // Ciclo for para sumar edades
+            for ($i = 0; $i < $n; $i++) {
+                $suma += intval($edades[$i]);
+            }
 
-    // Ciclo for para sumar las edades
-    for ($i = 0; $i < $n; $i++) {
-        $suma += $edades[$i];
-    }
+            // Evitar división por cero (por seguridad)
+            if ($n > 0) {
+                $promedio = $suma / $n;
 
-    $promedio = $suma / $n;
+                echo "<div class='result'>";
+                echo "<h3>Resultados</h3>";
+                echo "<table>";
+                echo "<tr><th>Concepto</th><th>Valor</th></tr>";
+                echo "<tr><td>Número de alumnos (N)</td><td>$n</td></tr>";
+                echo "<tr><td>Suma de edades</td><td>$suma</td></tr>";
+                echo "<tr style='background-color:#a0bcea;'><td><strong>Promedio de edades</strong></td><td><strong>" . number_format($promedio, 2) . "</strong></td></tr>";
+                echo "</table>";
+                echo "</div>";
 
-    echo "<h3>Resultado</h3>";
-    echo "La edad promedio del grupo es: <strong>$promedio</strong>";
-}
-?>
+                // Mostrar detalle de edades ingresadas (opcional, pero útil)
+                echo "<div class='product-info'>";
+                echo "<h4>Edades ingresadas:</h4>";
+                echo "<ul>";
+                for ($i = 0; $i < $n; $i++) {
+                    $num = $i + 1;
+                    echo "<li>Alumno $num: " . intval($edades[$i]) . " años</li>";
+                }
+                echo "</ul>";
+                echo "</div>";
+            } else {
+                echo "<div class='result'>Error: N debe ser mayor que 0.</div>";
+            }
+        }
+        ?>
 
+    </div>
 </body>
 </html>
